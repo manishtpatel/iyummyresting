@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting...</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="robots" content="noindex">
+</head>
+
+<body class="site-body">
+  <div class="page-shell">
+    <div class="panel">
+      <div class="panel-body">
+        <h1 class="page-title">Redirecting...</h1>
+        <p class="text-block" id="statusText">Please wait while we open the page.</p>
+        <div class="page-actions">
+          <a class="btn" href="/index.html">Go to Home</a>
+          <a class="btn" href="/p/index.html">Open Listing Page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var path = window.location.pathname || '';
+      var normalizedPath = path.replace(/\/+$/, '');
+      var segments = normalizedPath.split('/').filter(Boolean);
+      var pIndex = segments.indexOf('p');
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      var target = '/index.html';
+      var statusText = document.getElementById('statusText');
+
+      if (pIndex !== -1 && segments.length > pIndex + 1) {
+        var listingId = decodeURIComponent(segments[pIndex + 1]);
+        target = '/p/index.html?listingid=' + encodeURIComponent(listingId);
+        if (search) {
+          target += '&' + search.replace(/^\?/, '');
+        }
+      }
+
+      if (hash) {
+        target += hash;
+      }
+
+      statusText.textContent = 'Redirecting to: ' + target;
+      window.location.replace(target);
+    })();
+  </script>
+</body>
+
+</html>
