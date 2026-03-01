@@ -1,0 +1,178 @@
+:root {
+  --bg-color: #2a2725ff;
+  --text-color: #f2ede7;
+  --muted-color: #c4bbb2;
+  --border-color: #5e5956;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body.site-body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1rem 1rem 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.page-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #ddd3c9;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  color: var(--text-color);
+  background: transparent;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn:disabled,
+.btn[disabled],
+.btn-muted {
+  border-color: #7b7672;
+  color: #a5a09b;
+}
+
+.btn-muted {
+  cursor: not-allowed;
+}
+
+.page-actions .btn {
+  min-height: 44px;
+}
+
+.panel {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.85rem;
+}
+
+.panel-body {
+  padding: 1rem;
+}
+
+.text-block {
+  margin: 0 0 0.9rem;
+}
+
+.muted-text {
+  color: var(--muted-color);
+}
+
+.legal-content p {
+  line-height: 1.6;
+  margin: 0 0 0.9rem;
+}
+
+.section-title {
+  margin: 1.2rem 0 0.45rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.section-title-first {
+  margin-top: 0;
+}
+
+.listing-id {
+  word-break: break-word;
+}
+
+.stacked-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.app-store-link {
+  width: 180px;
+  display: inline-block;
+}
+
+.app-store-badge {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #ddd3c9;
+}
+
+a:hover {
+  color: #f2ede7;
+}
+
+@media (max-width: 480px) {
+  .page-actions {
+    width: 100%;
+  }
+
+  .page-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .panel-body {
+    padding: 1.25rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+}
+
+.content-card {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+}

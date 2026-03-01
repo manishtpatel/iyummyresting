@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3B Listing</title>
+  <meta name="description" content="3B listing page placeholder">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="site-body">
+  <div class="page-shell">
+    <div class="page-header">
+      <h1 class="page-title">3B</h1>
+      <a class="btn" href="../index.html">Back to Home</a>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <h2 class="section-title section-title-first">Listing</h2>
+        <p class="text-block listing-id">
+          Listing ID: <span id="listingId">{listingid}</span>
+        </p>
+
+        <p class="text-block">
+          Description placeholder. Listing details will be added here once app content is deployed.
+        </p>
+
+        <div class="stacked-actions">
+          <a id="appStoreLink" href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener noreferrer"
+            class="app-store-link">
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store" class="app-store-badge">
+          </a>
+          <small class="muted-text">App Store link placeholder. Update this URL after the app is live.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var segments = window.location.pathname.split('/').filter(Boolean);
+      var pIndex = segments.indexOf('p');
+      var listingId = '';
+
+      if (pIndex !== -1 && segments.length > pIndex + 1) {
+        listingId = decodeURIComponent(segments[pIndex + 1]);
+      }
+
+      if (!listingId) {
+        var params = new URLSearchParams(window.location.search);
+        listingId = params.get('listingid') || params.get('id') || '{listingid}';
+      }
+
+      var listingIdEl = document.getElementById('listingId');
+      listingIdEl.textContent = listingId;
+      document.title = '3B Listing - ' + listingId;
+    })();
+  </script>
+</body>
+
+</html>
