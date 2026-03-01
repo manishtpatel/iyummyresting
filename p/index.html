@@ -43,17 +43,25 @@
 
   <script>
     (function () {
-      var segments = window.location.pathname.split('/').filter(Boolean);
-      var pIndex = segments.indexOf('p');
-      var listingId = '';
+      var params = new URLSearchParams(window.location.search);
+      var listingId = params.get('listingid') || params.get('id') || '';
 
-      if (pIndex !== -1 && segments.length > pIndex + 1) {
-        listingId = decodeURIComponent(segments[pIndex + 1]);
+      if (!listingId) {
+        var segments = window.location.pathname.split('/').filter(Boolean);
+        var pIndex = segments.indexOf('p');
+        var candidate = '';
+
+        if (pIndex !== -1 && segments.length > pIndex + 1) {
+          candidate = decodeURIComponent(segments[pIndex + 1]);
+        }
+
+        if (candidate && candidate.toLowerCase() !== 'index.html') {
+          listingId = candidate;
+        }
       }
 
       if (!listingId) {
-        var params = new URLSearchParams(window.location.search);
-        listingId = params.get('listingid') || params.get('id') || '{listingid}';
+        listingId = '{listingid}';
       }
 
       var listingIdEl = document.getElementById('listingId');
