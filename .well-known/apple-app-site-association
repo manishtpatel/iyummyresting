@@ -2,11 +2,11 @@
   "applinks": {
       "details": [
            {
-             "appIDs": [ "HTXHB5ZY89.com.iyummy.3biz.iosapp" ],
+             "appIDs": [ "HTXHB5ZY89.com.iyummy.exlu" ],
              "components": [
                {
                   "/": "/p/*",
-                  "comment": "Matches any URL with a path that starts with /buy/."
+                  "comment": "Matches any URL with a path that starts with /p/."
                }
              ]
            }
